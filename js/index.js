@@ -690,6 +690,12 @@ calcElecBtn.onclick = calcElecMoney;
 
 /** Bài 3.3: Tính thuế thu nhập cá nhân
  * Input: Họ tên, Tổng thu nhập năm, số người phụ thuộc
+ * Process:
+ *   B1: Tạo các biến để lưu lương 1 năm, số người phụ thuộc, tổng lương.
+ *   B2: Tính thu nhập chịu thuế khi chưa nhân với thuế suất
+ *   B3: Với từng trường hợp lương 1 năm khác nhau thì nhân với thuế suất khác nhau;
+ *        dùng if
+ *   B4: In ra thu nhập chịu thuế
  * Output: Thuế thu nhập cá nhân
  */
 
@@ -721,3 +727,46 @@ function calcTax() {
 
 calcTaxBtn.onclick = calcTax;
 
+/** Bài 3.4: Tính tiền cáp
+ * Input: mã khách hàng, loại khách hàng, số kết nối, số kênh cao cấp
+ * Output: tiền cáp
+ */
+
+var calcCableMoneyBtn = document.getElementById("calcCableMoneyBtn");
+var cableCustomerID = document.getElementById("cableCustomerID");
+var typeOfCustomer = document.getElementById("typeOfCustomer");
+var numbersOfCable = document.getElementById("numbersOfCable");
+var premiumCable = document.getElementById("premiumCable");
+var numbersOfCableActive = document.getElementById("numbersOfCableActive");
+var resultCalcCableMoney = document.getElementById("resultCalcCableMoney");
+var totalCableMoney = document.getElementById("totalCableMoney");
+
+
+resultCalcCableMoney.style.display = "none";
+typeOfCustomer.onchange = function () {
+  if (this.value === "E") numbersOfCableActive.style.display = "flex";
+  else numbersOfCableActive.style.display = "none";
+};
+
+function calcCableMoney() {
+  var _totalCableMoney = 0;
+  var _numbersOfCable = Number(numbersOfCable.value);
+  var _premiumCable = Number(premiumCable.value);
+
+  if (typeOfCustomer.value === "P")
+    _totalCableMoney += 25 + 7.5 * _numbersOfCable + 7.5 * _premiumCable;
+  else {
+    if (_numbersOfCable < 10)
+    {
+     alert("Vui lòng nhập số kết nối lớn hơn 10");
+    }
+    else {
+      _totalCableMoney += 90 + 5 * (_numbersOfCable - 10);
+    }
+    _totalCableMoney += 50 * _premiumCable;
+  }
+  totalCableMoney.innerHTML = _totalCableMoney.toLocaleString();
+  resultCalcCableMoney.style.display = "initial";
+}
+
+calcCableMoneyBtn.onclick = calcCableMoney;

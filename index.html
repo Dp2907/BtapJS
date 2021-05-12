@@ -372,6 +372,58 @@
       </form>
     </div>
 
+    <div class="3.4" style="margin-top: 2rem">
+      <form action="" method="GET">
+        <fieldset>
+          <legend>
+            <b style="font-size: 2rem">Bài 3.4: Tính tiền cáp</b>
+          </legend>
+          <div style="display: flex; margin-top: 1rem">
+            <b style="margin-right: 3rem">Mã khách hàng:</b>
+            <input type="text" style="width: 20rem" id="cableCustomerID" />
+          </div>
+          <div style="display: flex; margin-top: 1rem">
+            <b style="margin-right: 2.5rem">Loại khách hàng:</b>
+            <select name="" id="typeOfCustomer">
+              <option value="P">Cá nhân</option>
+              <option value="E">Doanh nghiệp</option>
+            </select>
+          </div>
+          <div
+            style="display: flex; margin-top: 1rem; display: none"
+            id="numbersOfCableActive"
+          >
+            <b style="margin-right: 5.5rem">Số kết nối:</b>
+            <input type="number" style="width: 20rem" id="numbersOfCable" />
+          </div>
+          <div style="display: flex; margin-top: 1rem">
+            <b style="margin-right: 2.8rem">Số kênh cao cấp:</b>
+            <input type="text" style="width: 20rem" id="premiumCable" />
+          </div>
+          <button
+            style="
+              margin-top: 1rem;
+              padding: 0.3rem 9.6em;
+              font-size: 1.3rem;
+              border-radius: 8px;
+              border: 1px solid #000;
+              cursor: pointer;
+            "
+            id="calcCableMoneyBtn"
+            type="button"
+          >
+            Calculate
+          </button>
+
+          <div id = "resultCalcCableMoney">
+            <h2>
+              Tổng tiền cáp phải trả là:
+              <span id="totalCableMoney"></span>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
     <script src="js/index.js"></script>
   </body>
 </html>
